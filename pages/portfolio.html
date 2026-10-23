@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio 2026 – Zofia Magdalan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>ZOFIA MAGDALAN</h1>
+                <p class="tagline">Fashion & Graphic Design</p>
+            </div>
+            <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span></button>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="bio.html" class="nav-link">Bio</a></li>
+                <li class="has-sub">
+                    <a href="portfolio.html" class="nav-link">Portfolio</a>
+                    <ul class="submenu"><li><a href="portfolio.html">Portfolio 2026</a></li></ul>
+                </li>
+                <li class="has-sub">
+                    <a href="works.html" class="nav-link">Work</a>
+                    <ul class="submenu">
+                        <li><a href="works.html">Artistic Works</a></li>
+                        <li><a href="sessions.html">Photo Sessions</a></li>
+                        <li><a href="diploma.html">Diploma 2026</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <section class="page-header">
+            <span class="eyebrow">Portfolio</span>
+            <h2>Portfolio 2026</h2>
+        </section>
+
+        <div class="flipbook-container">
+            <div class="book-container">
+                <div class="book" id="book">
+                    <div class="page left-page" id="left-page"></div>
+                    <div class="page right-page" id="right-page"></div>
+                    <div class="leaf" id="leaf">
+                        <div class="face front" id="leaf-front"></div>
+                        <div class="face back" id="leaf-back"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button onclick="prevPair()">← Previous</button>
+                <span class="page-counter">Pages <span id="current-page">1-2</span> of 55</span>
+                <button onclick="nextPair()">Next →</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Zofia Magdalan. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/zmagdalan/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/page-offsets.js"></script>
+    <script>
+        const allImages = [
+            'Obszar%20kompozycji%201.jpg',
+            'Obszar%20kompozycji%202.jpg',
+            'Obszar%20kompozycji%203.jpg',
+            'Obszar%20kompozycji%204.jpg',
+            'Obszar%20kompozycji%206.jpg',
+            'Obszar%20kompozycji%207.jpg',
+            'Obszar%20kompozycji%208.jpg',
+            'Obszar%20kompozycji%209.jpg',
+            'Obszar%20kompozycji%2010.jpg',
+            'Obszar%20kompozycji%2011.jpg',
+            'Obszar%20kompozycji%2012.jpg',
+            'Obszar%20kompozycji%2014.jpg',
+            'Obszar%20kompozycji%2015.jpg',
+            'Obszar%20kompozycji%2016.jpg',
+            'Obszar%20kompozycji%2018.jpg',
+            'Obszar%20kompozycji%2020.jpg',
+            'Obszar%20kompozycji%2021.jpg',
+            'Obszar%20kompozycji%2022.jpg',
+            'Obszar%20kompozycji%2023.jpg',
+            'Obszar%20kompozycji%2024.jpg',
+            'Obszar%20kompozycji%2025.jpg',
+            'Obszar%20kompozycji%2026.jpg',
+            'Obszar%20kompozycji%2027.jpg',
+            'Obszar%20kompozycji%2028.jpg',
+            'Obszar%20kompozycji%2029.jpg',
+            'Obszar%20kompozycji%2030.jpg',
+            'Obszar%20kompozycji%2031.jpg',
+            'Obszar%20kompozycji%2032.jpg',
+            'Obszar%20kompozycji%2033.jpg',
+            'Obszar%20kompozycji%2034.jpg',
+            'Obszar%20kompozycji%2035.jpg',
+            'Obszar%20kompozycji%2036.jpg',
+            'Obszar%20kompozycji%2037.jpg',
+            'Obszar%20kompozycji%2038.jpg',
+            'Obszar%20kompozycji%2039.jpg',
+            'Obszar%20kompozycji%2040.jpg',
+            'Obszar%20kompozycji%2041.jpg',
+            'Obszar%20kompozycji%2043.jpg',
+            'Obszar%20kompozycji%2044.jpg',
+            'Obszar%20kompozycji%2045.jpg',
+            'Obszar%20kompozycji%2046.jpg',
+            'Obszar%20kompozycji%2047.jpg',
+            'Obszar%20kompozycji%2048.jpg',
+            'Obszar%20kompozycji%2049.jpg',
+            'Obszar%20kompozycji%2050.jpg',
+            'Obszar%20kompozycji%2051.jpg',
+            'Obszar%20kompozycji%2052.jpg',
+            'Obszar%20kompozycji%2053.jpg',
+            'Obszar%20kompozycji%2054.jpg',
+            'Obszar%20kompozycji%2055.jpg',
+            'Obszar%20kompozycji%2056.jpg',
+            'Obszar%20kompozycji%2057.jpg',
+            'Obszar%20kompozycji%2058.jpg',
+            'Obszar%20kompozycji%2059.jpg',
+            'Obszar%20kompozycji%2060.jpg'
+        ];
+
+        const IMG_DIR = '../portfolio%20jpg-2/web/';
+        const FLIP_MS = 800;
+        const totalPages = allImages.length;
+        const totalPairs = Math.ceil(totalPages / 2);
+        let currentPair = 0;
+        let isFlipping = false;
+
+        const leftEl = document.getElementById('left-page');
+        const rightEl = document.getElementById('right-page');
+        const leaf = document.getElementById('leaf');
+        const leafFront = document.getElementById('leaf-front');
+        const leafBack = document.getElementById('leaf-back');
+
+        // Obiekty Image trzymamy w pamięci, żeby zdekodowane zdjęcia nie znikały między obrotami
+        const cache = [];
+        function load(idx) {
+            if (idx < 0 || idx >= totalPages) return Promise.resolve();
+            if (!cache[idx]) {
+                const img = new Image();
+                img.src = IMG_DIR + allImages[idx];
+                cache[idx] = img.decode().catch(() => {}).then(() => img);
+            }
+            return cache[idx];
+        }
+
+        function preloadAround() {
+            for (let p = currentPair - 1; p <= currentPair + 2; p++) {
+                load(p * 2);
+                load(p * 2 + 1);
+            }
+        }
+
+        function setImg(el, idx) {
+            const ok = idx >= 0 && idx < totalPages;
+            el.style.backgroundImage = ok ? `url('${IMG_DIR}${allImages[idx]}')` : 'none';
+            el.style.setProperty('--dy', ok ? (PAGE_OFFSETS[idx] || 0) : 0);
+        }
+
+        function showCounter() {
+            const start = currentPair * 2 + 1;
+            const end = Math.min(start + 1, totalPages);
+            document.getElementById('current-page').textContent = `${start}-${end}`;
+        }
+
+        function setLeafAngle(deg, animated) {
+            leaf.style.transition = animated ? `transform ${FLIP_MS}ms ease-in-out` : 'none';
+            leaf.style.transform = `rotateY(${deg}deg)`;
+        }
+
+        function render() {
+            setImg(leftEl, currentPair * 2);
+            setImg(rightEl, currentPair * 2 + 1);
+            setImg(leafFront, currentPair * 2 + 1);
+            setLeafAngle(0, false);
+            showCounter();
+        }
+
+        // Podmiana stron dopiero po faktycznym końcu animacji, żeby nic nie przeskakiwało
+        function afterFlip(done) {
+            let finished = false;
+            const finish = () => {
+                if (finished) return;
+                finished = true;
+                leaf.removeEventListener('transitionend', onEnd);
+                done();
+            };
+            const onEnd = (e) => {
+                if (e.target === leaf && e.propertyName === 'transform') finish();
+            };
+            leaf.addEventListener('transitionend', onEnd);
+            setTimeout(finish, FLIP_MS + 200);
+        }
+
+        // Kartka: przód = obecna prawa strona, tył = następna lewa strona
+        async function nextPair() {
+            if (currentPair >= totalPairs - 1 || isFlipping) return;
+            isFlipping = true;
+
+            const nextLeft = (currentPair + 1) * 2;
+            await Promise.all([load(nextLeft), load(nextLeft + 1)]);
+            setImg(rightEl, nextLeft + 1);   // odsłaniana spod kartki
+            setImg(leafBack, nextLeft);      // ląduje na lewej stronie
+
+            void leaf.offsetWidth;
+            setLeafAngle(-180, true);
+
+            afterFlip(() => {
+                currentPair++;
+                render();
+                isFlipping = false;
+                preloadAround();
+            });
+        }
+
+        // Kartka startuje na lewej stronie (tył = obecna lewa) i wraca na prawą (przód = poprzednia prawa)
+        async function prevPair() {
+            if (currentPair <= 0 || isFlipping) return;
+            isFlipping = true;
+
+            const prevLeft = (currentPair - 1) * 2;
+            await Promise.all([load(prevLeft), load(prevLeft + 1)]);
+            setImg(leftEl, prevLeft);        // odsłaniana spod kartki
+            setImg(leafBack, currentPair * 2);
+            setImg(leafFront, prevLeft + 1);
+
+            setLeafAngle(-180, false);
+            void leaf.offsetWidth;
+            setLeafAngle(0, true);
+
+            afterFlip(() => {
+                currentPair--;
+                render();
+                isFlipping = false;
+                preloadAround();
+            });
+        }
+
+        leaf.addEventListener('click', nextPair);
+        rightEl.addEventListener('click', nextPair);
+        leftEl.addEventListener('click', prevPair);
+
+        // Proporcje strony z pierwszego zdjęcia, żeby wszystkie kartki miały ten sam format
+        const book = document.getElementById('book');
+
+        const probe = new Image();
+        probe.onload = () => {
+            book.style.setProperty('--page-ratio', (probe.naturalWidth / probe.naturalHeight).toFixed(4));
+        };
+        probe.src = IMG_DIR + allImages[0];
+
+        new ResizeObserver(() => book.style.setProperty('--page-h', book.clientHeight + 'px')).observe(book);
+
+        preloadAround();
+        render();
+    </script>
+</body>
+</html>
