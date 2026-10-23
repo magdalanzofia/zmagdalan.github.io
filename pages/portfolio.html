@@ -134,7 +134,15 @@
             'Obszar%20kompozycji%2060.jpg'
         ];
 
-        const IMG_DIR = '../portfolio%20jpg-2/web/';
+        const offsetByImage = new Map(
+            allImages.map((image, index) => [image, PAGE_OFFSETS[index] || 0])
+        );
+        for (let i = allImages.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [allImages[i], allImages[j]] = [allImages[j], allImages[i]];
+        }
+
+        const IMG_DIR = '../assets/portfolio/';
         const FLIP_MS = 800;
         const totalPages = allImages.length;
         const totalPairs = Math.ceil(totalPages / 2);
@@ -169,7 +177,7 @@
         function setImg(el, idx) {
             const ok = idx >= 0 && idx < totalPages;
             el.style.backgroundImage = ok ? `url('${IMG_DIR}${allImages[idx]}')` : 'none';
-            el.style.setProperty('--dy', ok ? (PAGE_OFFSETS[idx] || 0) : 0);
+            el.style.setProperty('--dy', ok ? (offsetByImage.get(allImages[idx]) || 0) : 0);
         }
 
         function showCounter() {
