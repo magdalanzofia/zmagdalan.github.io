@@ -19,12 +19,30 @@ document.addEventListener('DOMContentLoaded', () => {
     // Home slider
     const slides = document.querySelectorAll('.hero-slide');
     if (slides.length) {
+        const order = [...slides];
+        for (let i = order.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [order[i], order[j]] = [order[j], order[i]];
+        }
+
+        const storageKey = 'home-slider-last-image';
+        try {
+            const previousImage = sessionStorage.getItem(storageKey);
+            if (order.length > 1 && order[0].style.backgroundImage === previousImage) {
+                const j = 1 + Math.floor(Math.random() * (order.length - 1));
+                [order[0], order[j]] = [order[j], order[0]];
+            }
+            sessionStorage.setItem(storageKey, order[0].style.backgroundImage);
+        } catch {
+            // Continue with the shuffled order if browser storage is unavailable.
+        }
+
         let i = 0;
-        slides[0].classList.add('is-active');
+        order[i].classList.add('is-active');
         setInterval(() => {
-            slides[i].classList.remove('is-active');
-            i = (i + 1) % slides.length;
-            slides[i].classList.add('is-active');
+            order[i].classList.remove('is-active');
+            i = (i + 1) % order.length;
+            order[i].classList.add('is-active');
         }, 5000);
     }
 
